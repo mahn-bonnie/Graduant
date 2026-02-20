@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rolina · grad umbrella pop ✨</title>
+  <title>Rolina ✨</title>
   <!-- Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,7 +119,7 @@
       font-size: 1.4rem;
     }
 
-    /* signature & cheers button (changed from pop) */
+    /* signature & cheers button + music link */
     .footer-actions {
       display: flex;
       align-items: center;
@@ -148,7 +148,7 @@
       font-size: 1.3rem;
       font-weight: 700;
       color: #8f3f60;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 12px;
       box-shadow: 0 5px 0 #d48dae, 0 8px 18px #fec7dd;
@@ -163,6 +163,29 @@
     .cheers-btn i {
       font-size: 2rem;
       color: #ff3b6f;
+    }
+    /* music button style */
+    .music-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e2f0ff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #413d6b;
+      font-weight: 600;
+      border: 1px solid #ffb8d2;
+      transition: 0.15s;
+      white-space: nowrap;
+    }
+    .music-button:hover {
+      background: #d4e4ff;
+      transform: scale(1.02);
+    }
+    .music-button i {
+      color: #ff1e4d;
+      font-size: 1.6rem;
     }
 
     /* memory chips */
@@ -254,6 +277,15 @@
       pointer-events: none;
       z-index: 20;
     }
+    /* small responsive touch */
+    @media (max-width: 650px) {
+      .footer-actions {
+        justify-content: center;
+      }
+      .music-button {
+        margin-left: 0 !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -284,14 +316,21 @@
       <p>Congratulations, my graduate 🎓✨</p>
     </div>
 
-    <!-- signature and CHEERS button (was pop) -->
+    <!-- signature and CHEERS button + music link (fixed placement) -->
     <div class="footer-actions">
       <div class="signature-mini">
         <i class="fas fa-feather"></i> M.B 😎
       </div>
-      <button class="cheers-btn" id="cheersBtn">
-        <i class="fas fa-champagne-glasses"></i> <span>cheers!</span>
-      </button>
+      <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center;">
+        <button class="cheers-btn" id="cheersBtn">
+          <i class="fas fa-champagne-glasses"></i> <span>cheers!</span>
+        </button>
+        <!-- music link now correctly placed outside the button -->
+        <a href="https://youtu.be/cPQleLqeWsk?list=RDcPQleLqeWsk" target="_blank" class="music-button">
+          <i class="fab fa-youtube"></i> 
+          <span>Our Song 🎵</span>
+        </a>
+      </div>
     </div>
 
     <!-- memory chips / qualities -->
