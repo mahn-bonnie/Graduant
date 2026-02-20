@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rolina · grad umbrella pop ✨</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(165deg, #ffe7f2 0%, #e2f0ff 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* main compact card – pink & blue lady-like tones */
+    .hero-compact {
+      max-width: 860px;
+      width: 100%;
+      background: rgba(255, 248, 250, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 2.8rem 2.8rem 2rem 2rem;
+      box-shadow: 0 20px 40px -8px rgba(245, 150, 200, 0.3),
+                  0 0 0 2px #ffe5f0 inset,
+                  0 8px 0 0 #ffe0f0 inset;
+      padding: 1.8rem 1.8rem 2.2rem 1.8rem;
+      border: 1px solid #ffd9e8;
+      animation: rise 0.8s ease-out;
+    }
+
+    /* header with pookie + red heart */
+    .pookie-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #c14578;
+      background: rgba(255, 220, 240, 0.5);
+      padding: 0.4rem 1.4rem 0.4rem 1.8rem;
+      border-radius: 60px;
+      width: fit-content;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ffb3cb;
+      box-shadow: 0 4px 8px #ffc1d6;
+    }
+    .pookie-header i {
+      color: #ff2a5e;
+      font-size: 2.4rem;
+      filter: drop-shadow(0 2px 4px #ffa0b5);
+    }
+
+    /* name compact + grad cap */
+    .name-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.4rem;
+    }
+    .name-pretty {
+      font-size: clamp(2.8rem, 8vw, 4.4rem);
+      font-weight: 700;
+      background: linear-gradient(130deg, #d45e8b, #a864b8, #5f9ee0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      text-shadow: 0 5px 15px #ffb5d0;
+    }
+    .cap-icon {
+      font-size: 2.4rem;
+      margin-left: 0.5rem;
+      color: #c2578a;
+      animation: wobble 3s infinite;
+    }
+
+    /* message box – compact but warm */
+    .message-compact {
+      background: rgba(255, 240, 250, 0.8);
+      border-radius: 30px 30px 30px 10px;
+      padding: 1.5rem 1.5rem 1.8rem 1.8rem;
+      box-shadow: 0 20px 30px -15px #ffb0cc, 0 3px 0 0 #ffbfd7 inset;
+      border: 1px solid #ffb8d2;
+      margin: 1.2rem 0 1.4rem;
+    }
+    .message-compact p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #483248;
+      margin-bottom: 0.8rem;
+    }
+    .message-compact p:last-child {
+      margin-bottom: 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #b13e6b;
+    }
+    .quote-icon {
+      color: #f79fc0;
+      margin-right: 6px;
+      font-size: 1.4rem;
+    }
+
+    /* signature & cheers button (changed from pop) */
+    .footer-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+    .signature-mini {
+      background: #ffe2f0;
+      padding: 0.3rem 1.2rem 0.3rem 1.8rem;
+      border-radius: 50px;
+      font-size: 1.25rem;
+      font-style: italic;
+      border: 2px dashed #ff9ec0;
+      color: #973d6b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cheers-btn {
+      background: #ffd3e5;
+      border: none;
+      border-radius: 80px;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #8f3f60;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 5px 0 #d48dae, 0 8px 18px #fec7dd;
+      cursor: pointer;
+      transition: 0.06s linear;
+      border: 1px solid white;
+    }
+    .cheers-btn:active {
+      transform: translateY(5px);
+      box-shadow: 0 2px 0 #d48dae, 0 8px 18px #ffbfd6;
+    }
+    .cheers-btn i {
+      font-size: 2rem;
+      color: #ff3b6f;
+    }
+
+    /* memory chips */
+    .chip-wall {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.6rem 0 1rem;
+      justify-content: center;
+    }
+    .chip {
+      background: #f0e2ff;
+      border-radius: 50px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 6px 12px -5px #bda0d0, 0 0 0 2px #faf0ff inset;
+      border: 1px solid #b386c0;
+      color: #502e5e;
+      transition: 0.15s;
+    }
+    .chip i {
+      color: #b057a0;
+      font-size: 1.3rem;
+    }
+    .chip:hover {
+      transform: scale(1.02) rotate(-1deg);
+      background: #edd8ff;
+    }
+
+    /* cheers counter pink/blue style */
+    .cheers-panel {
+      background: linear-gradient(120deg, #ffd9ec, #daeaff);
+      border-radius: 60px;
+      padding: 0.5rem 1.2rem 0.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.6rem;
+      border: 2px solid white;
+    }
+    .cheers-label {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #413d6b;
+    }
+    .cheers-number {
+      background: white;
+      padding: 0.2rem 1.4rem;
+      border-radius: 60px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #cb4d7a;
+      box-shadow: 0 2px 12px #ffa5cb inset;
+      cursor: pointer;
+      border: 3px solid #ffb8d4;
+      transition: 0.1s;
+      min-width: 70px;
+      text-align: center;
+    }
+    .cheers-number:hover {
+      background: #fff3fb;
+      transform: scale(1.02);
+    }
+
+    /* keyframes */
+    @keyframes rise {
+      0% { opacity: 0; transform: translateY(30px) scale(0.97); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes wobble {
+      0%,100% { transform: rotate(0); }
+      30% { transform: rotate(6deg); }
+      70% { transform: rotate(-6deg); }
+    }
+
+    /* confetti canvas */
+    #pop-canvas {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- pop confetti canvas -->
+  <canvas id="pop-canvas"></canvas>
+
+  <!-- main compact card -->
+  <div class="hero-compact">
+
+    <!-- pookie with red heart -->
+    <div class="pookie-header">
+      <span>Pookie</span>
+      <i class="fas fa-heart" style="color: #ff1e4d;"></i>
+    </div>
+
+    <!-- her name rolina + cap -->
+    <div class="name-row">
+      <span class="name-pretty">Rolina</span>
+      <span class="cap-icon"><i class="fas fa-graduation-cap"></i></span>
+    </div>
+
+    <!-- message (exactly as given) without good morning -->
+    <div class="message-compact">
+      <p><i class="fas fa-quote-left quote-icon"></i> Today is finally here!!! I’m so, so proud of you. Watching you grow, work hard, and reach this milestone has been such a beautiful thing. You deserve every bit of this success and more. Your dedication, late nights, and determination truly paid off — and today the world gets to celebrate the amazing woman I already know you are.</p>
+      <p>Graduation isn’t just about finishing school, it’s about the strength, resilience, and growth it took to get here. And you handled it with so much grace. I hope you feel proud of yourself, because I definitely do.</p>
+      <p>Enjoy every moment today — smile, take pictures, celebrate big. You’ve earned it. I’ll see you later and we’ll celebrate properly together 😉</p>
+      <p>Congratulations, my graduate 🎓✨</p>
+    </div>
+
+    <!-- signature and CHEERS button (was pop) -->
+    <div class="footer-actions">
+      <div class="signature-mini">
+        <i class="fas fa-feather"></i> M.B 😎
+      </div>
+      <button class="cheers-btn" id="cheersBtn">
+        <i class="fas fa-champagne-glasses"></i> <span>cheers!</span>
+      </button>
+    </div>
+
+    <!-- memory chips / qualities -->
+    <div class="chip-wall">
+      <div class="chip"><i class="fas fa-star"></i> resilient</div>
+      <div class="chip"><i class="fas fa-moon"></i> late nights</div>
+      <div class="chip"><i class="fas fa-crown"></i> queen</div>
+      <div class="chip"><i class="fas fa-heart"></i> so loved</div>
+      <div class="chip"><i class="fas fa-gem"></i> brilliant</div>
+    </div>
+
+    <!-- cheers counter pink & blue -->
+    <div class="cheers-panel">
+      <div class="cheers-label">
+        <i class="fas fa-circle" style="color:#ff89b5;"></i>
+        <i class="fas fa-circle" style="color:#89b5ff;"></i>
+        <span>celebratory pops</span>
+      </div>
+      <div class="cheers-number" id="popCounterDisplay">0</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ---------- POP CANVAS (umbrella from center & special cheers) ----------
+      const canvas = document.getElementById('pop-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      // Particle class – can be used for both effects
+      class PopParticle {
+        constructor(x, y, options = {}) {
+          const {
+            angleSpread = 120,        // for umbrella: degrees from vertical
+            speed = 12,
+            radial = false,            // if true, burst from center with random direction (360)
+            centerX = width/2,
+            centerY = height - 100,    // default umbrella origin (bottom center)
+            special = false,            // cheers special effect?
+          } = options;
+
+          // default position: umbrella origin (bottom center)
+          this.x = x !== undefined ? x : centerX;
+          this.y = y !== undefined ? y : centerY;
+
+          // velocity calculation
+          let angle;
+          if (radial) {
+            // full 360° random direction
+            angle = Math.random() * 2 * Math.PI;
+          } else {
+            // umbrella: angle within ±angleSpread/2 degrees from upward ( -90° = up)
+            const angleDeg = (Math.random() - 0.5) * angleSpread; // in degrees, 0 = up
+            angle = -Math.PI/2 + (angleDeg * Math.PI/180); // convert to radians, upward is -PI/2
+          }
+
+          const baseSpeed = speed * (0.8 + Math.random() * 0.7);
+          this.vx = Math.cos(angle) * baseSpeed;
+          this.vy = Math.sin(angle) * baseSpeed;
+
+          // special cheers: extra oomph and variation
+          if (special) {
+            this.vx *= 1.5;
+            this.vy *= 1.3;
+            // also more random sideways
+            this.vx += (Math.random() - 0.5) * 3;
+          }
+
+          this.size = 8 + Math.random() * 16;
+          // colors: pink, blue, gold, white, coral (lady-like)
+          const hues = special ? [350, 20, 45, 200, 320, 30] : [340, 350, 10, 210, 200, 180, 320];
+          this.color = `hsl(${hues[Math.floor(Math.random() * hues.length)]}, 80%, 70%)`;
+          if (special && Math.random() > 0.7) {
+            this.color = '#ffd966'; // gold pop
+          }
+          this.rotation = Math.random() * 360;
+          this.rotationSpeed = (Math.random() - 0.5) * 0.05;
+          this.gravity = 0.1;
+          this.special = special; // mark for special behavior (optional)
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.vy += this.gravity;
+          this.rotation += this.rotationSpeed;
+
+          // reset if too far outside
+          if (this.y > height + 200 || this.y < -200 || this.x < -200 || this.x > width + 200) {
+            this.respawn();
+          }
+        }
+
+        respawn() {
+          // recycle from umbrella origin (bottom center) to keep numbers stable
+          this.x = width/2;
+          this.y = height - 100;
+          // give it a fresh umbrella-like velocity
+          const angleDeg = (Math.random() - 0.5) * 120; // umbrella spread
+          const angle = -Math.PI/2 + (angleDeg * Math.PI/180);
+          const baseSpeed = 10 + Math.random() * 8;
+          this.vx = Math.cos(angle) * baseSpeed;
+          this.vy = Math.sin(angle) * baseSpeed;
+          const hues = [340, 350, 10, 210, 200, 180, 320];
+          this.color = `hsl(${hues[Math.floor(Math.random() * hues.length)]}, 80%, 70%)`;
+        }
+
+        draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.rotation);
+          ctx.fillStyle = this.color;
+          ctx.shadowColor = 'rgba(255,160,200,0.5)';
+          ctx.shadowBlur = 14;
+          ctx.beginPath();
+          // draw as rounded square or small circle for variation
+          if (this.special && Math.random() > 0.5) {
+            // tiny heart shape for special? just a circle with sparkle
+            ctx.beginPath();
+            ctx.arc(0, 0, this.size/2, 0, 2*Math.PI);
+            ctx.fill();
+          } else {
+            ctx.fillRect(-this.size/2, -this.size/4, this.size, this.size/2);
+          }
+          ctx.restore();
+        }
+      }
+
+      // create initial particles for umbrella effect (interval)
+      for (let i = 0; i < 70; i++) {
+        // all start from bottom center with umbrella spread
+        particles.push(new PopParticle(width/2, height-100, { angleSpread: 120, speed: 12 }));
+      }
+
+      // Umbrella burst function (used by interval) – creates a spray from center like an umbrella
+      function umbrellaBurst(amount = 18) {
+        for (let i = 0; i < amount; i++) {
+          let p = new PopParticle(width/2, height-100, { angleSpread: 120, speed: 12 });
+          particles.push(p);
+        }
+        // keep array size manageable
+        if (particles.length > 250) {
+          particles = particles.slice(-220);
+        }
+      }
+
+      // Special CHEERS burst – unique, more explosive, radial, with gold/white and sparkle
+      function cheersBurst(amount = 30) {
+        for (let i = 0; i < amount; i++) {
+          // radial: full 360°, from center (bottom center) but with more energy
+          let p = new PopParticle(width/2, height-120, {
+            radial: true,
+            speed: 16,
+            special: true
+          });
+          // add extra random upward bias for fun
+          p.vy -= 2; // extra upward oomph
+          particles.push(p);
+        }
+        // also add a few big confetti pieces
+        for (let i = 0; i < 8; i++) {
+          let p = new PopParticle(width/2, height-120, {
+            radial: true,
+            speed: 10,
+            special: true
+          });
+          p.size = 20 + Math.random() * 20;
+          p.color = `hsl(${Math.random() * 30 + 40}, 90%, 70%)`; // goldish
+          particles.push(p);
+        }
+        if (particles.length > 300) {
+          particles = particles.slice(-270);
+        }
+      }
+
+      // animation loop
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      // ---------- INTERVAL: umbrella burst every 4.2 seconds ----------
+      let intervalPop = setInterval(() => {
+        umbrellaBurst(20);
+        // increment counter automatically
+        let counterEl = document.getElementById('popCounterDisplay');
+        let current = parseInt(counterEl.innerText, 10) || 0;
+        current++;
+        counterEl.innerText = current;
+      }, 4200);
+
+      // ---------- CHEERS BUTTON (special unique burst) ----------
+      const cheersBtn = document.getElementById('cheersBtn');
+      const counterDisplay = document.getElementById('popCounterDisplay');
+      let cheersCount = 0;
+
+      cheersBtn.addEventListener('click', () => {
+        // special cheers burst
+        cheersBurst(36);
+
+        // increment counter
+        cheersCount++;
+        counterDisplay.innerText = cheersCount;
+
+        // animate button
+        const icon = cheersBtn.querySelector('i');
+        icon.style.transform = 'scale(1.5) rotate(10deg)';
+        setTimeout(() => icon.style.transform = 'scale(1) rotate(0deg)', 200);
+      });
+
+      // click on counter also adds umbrella burst (for extra fun)
+      counterDisplay.addEventListener('click', () => {
+        umbrellaBurst(22);
+        cheersCount++;
+        counterDisplay.innerText = cheersCount;
+      });
+
+      // ensure counter starts at 0
+      counterDisplay.innerText = '0';
+
+      // optional: hover on chips gives micro umbrella burst
+      const chips = document.querySelectorAll('.chip');
+      chips.forEach(chip => {
+        chip.addEventListener('mouseenter', () => {
+          if (Math.random() > 0.6) {
+            for (let i=0; i<6; i++) {
+              let p = new PopParticle(width/2, height-100, { angleSpread: 120, speed: 8 });
+              p.size = 6 + Math.random()*8;
+              particles.push(p);
+            }
+          }
+        });
+      });
+
+      // cleanup interval on page unload
+      window.addEventListener('beforeunload', () => clearInterval(intervalPop));
+
+      // initial umbrella burst after 0.6s
+      setTimeout(() => {
+        umbrellaBurst(24);
+      }, 600);
+    })();
+  </script>
+</body>
+</html>
